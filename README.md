@@ -6,7 +6,7 @@ Check this repo for more information
 [react-flux-router-boilerplate](https://github.com/apzentral/react-flux-router-boilerplate)
 A boilerplate for a full React, Flux and Router application development.
 
-[working demo](http://apzentral.github.io/rreact-boilerplate)
+[working demo](http://capheshift.github.io/rreact-boilerplate/)
 
 
 ### Directory Layout
