@@ -21413,7 +21413,8 @@
 	  render: function() {
 	    return (
 	      React.DOM.div(null, 
-	        React.DOM.p(null, "CONTACT PAGE")
+	        React.DOM.p(null, "CONTACT PAGE"), 
+	        React.DOM.button(null, "Skeleton")
 	      )
 	    );
 	  }
