@@ -19,6 +19,7 @@ var ContactPage = React.createClass({
     return (
       <div>
         <p>CONTACT PAGE</p>
+        <button>Skeleton</button>
       </div>
     );
   }
