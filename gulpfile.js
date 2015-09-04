@@ -61,14 +61,36 @@ gulp.task('assets', function() {
 
   // Compile Scss
   return gulp.src(src.assets)
-    .pipe($.changed(out, {
-      extension: '.css'
-    }))
+    // .pipe($.changed(out, {
+    //   extension: '.css'
+    // }))
     .pipe($.if('*.scss', $.sass()))
-    .pipe(gulp.dest(out))
-    .pipe($.size({
-      title: 'assets'
-    }));
+    .pipe(gulp.dest(out));
+    // .pipe($.size({
+    //   title: 'assets'
+    // }))
+    // .pipe(browserSync.stream());
+});
+
+// Assets
+gulp.task('sass', function() {
+  src.scss = ['src/assets/**'];
+  // Out Put Location
+  var out = DEST + '/assets';
+
+  // Compile Scss
+  return gulp.src(src.scss)
+    // .pipe($.changed(out, {
+    //   extension: '.css'
+    // }))
+    .pipe($.sass({
+      onError: console.error.bind(console, 'Sass error:')
+    }))
+    .pipe(gulp.dest(out));
+    // .pipe($.size({
+    //   title: 'assets'
+    // }))
+    // .pipe(browserSync.stream());
 });
 
 // HTML pages
@@ -119,7 +141,8 @@ gulp.task('bundle', function(cb) {
 
 // Build the app from source code
 gulp.task('build', ['clean'], function(cb) {
-  runSequence(['assets', 'pages', 'bundle'], function() {
+  // runSequence(['assets', 'pages', 'bundle'], function() {
+  runSequence(['sass', 'pages', 'bundle'], function() {
     // If watch flag is set
     if (watch) {
       gulp.watch(src.assets, ['assets']);
@@ -167,7 +190,8 @@ gulp.task('serve', function(cb) {
       }
     });
 
-    gulp.watch(src.assets, ['assets']);
+    // gulp.watch(src.assets, ['assets']);
+    gulp.watch(src.scss, ['sass']);
     gulp.watch(src.pages, ['pages']);
     gulp.watch(DEST + '/**/*.*', function(file) {
       browserSync.reload(path.relative(__dirname, file.path));
