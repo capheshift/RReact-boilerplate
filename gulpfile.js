@@ -54,22 +54,18 @@ gulp.task('default', ['serve']);
 gulp.task('clean', del.bind(null, [DEST]));
 
 // Assets
-gulp.task('assets', function() {
-  src.assets = ['src/assets/**'];
+gulp.task('public', function() {
+  src.public = ['src/public/**'];
   // Out Put Location
-  var out = DEST + '/assets';
+  var out = DEST + '/';
 
   // Compile Scss
-  return gulp.src(src.assets)
-    // .pipe($.changed(out, {
-    //   extension: '.css'
-    // }))
-    .pipe($.if('*.scss', $.sass()))
-    .pipe(gulp.dest(out));
-    // .pipe($.size({
-    //   title: 'assets'
-    // }))
-    // .pipe(browserSync.stream());
+  return gulp.src(src.public)
+    .pipe($.changed(out))
+    .pipe(gulp.dest(out))
+    .pipe($.size({
+      title: 'public'
+    }));
 });
 
 // Assets
@@ -80,17 +76,13 @@ gulp.task('sass', function() {
 
   // Compile Scss
   return gulp.src(src.scss)
-    // .pipe($.changed(out, {
-    //   extension: '.css'
-    // }))
     .pipe($.sass({
       onError: console.error.bind(console, 'Sass error:')
     }))
-    .pipe(gulp.dest(out));
-    // .pipe($.size({
-    //   title: 'assets'
-    // }))
-    // .pipe(browserSync.stream());
+    .pipe(gulp.dest(out))
+    .pipe($.size({
+      title: 'assets'
+    }));
 });
 
 // HTML pages
@@ -122,9 +114,11 @@ gulp.task('bundle', function(cb) {
       throw new $.util.PluginError('webpack', err);
     }
 
-    !!argv.verbose && $.util.log('[webpack]', stats.toString({
-      colors: true
-    }));
+    if (!!argv.verbose) {
+      $.util.log('[webpack]', stats.toString({
+        colors: true
+      }));
+    }
 
     if (!started) {
       started = true;
@@ -142,9 +136,10 @@ gulp.task('bundle', function(cb) {
 // Build the app from source code
 gulp.task('build', ['clean'], function(cb) {
   // runSequence(['assets', 'pages', 'bundle'], function() {
-  runSequence(['sass', 'pages', 'bundle'], function() {
+  runSequence(['public', 'sass', 'pages', 'bundle'], function() {
     // If watch flag is set
     if (watch) {
+      gulp.watch(src.public, ['public']);
       gulp.watch(src.assets, ['assets']);
       gulp.watch(src.pages, ['pages']);
       gulp.watch(DEST + '/**/*.*', function(file) {
@@ -190,7 +185,7 @@ gulp.task('serve', function(cb) {
       }
     });
 
-    // gulp.watch(src.assets, ['assets']);
+    gulp.watch(src.public, ['public']);
     gulp.watch(src.scss, ['sass']);
     gulp.watch(src.pages, ['pages']);
     gulp.watch(DEST + '/**/*.*', function(file) {
