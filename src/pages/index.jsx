@@ -4,14 +4,14 @@
 'use strict';
 
 var React = require('react');
-var DefaultLayout = React.createFactory(require('../layouts/Default'));
+var RatchetLayout = React.createFactory(require('../layouts/RatchetLayout'));
 
 var HomePage = React.createClass({
   displayName: 'Home page',
 
   getDefaultProps: function() {
     return {
-      layout: DefaultLayout
+      layout: RatchetLayout
     };
   },
 

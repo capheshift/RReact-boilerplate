@@ -4,22 +4,25 @@
 'use strict';
 
 var React = require('react');
-var DefaultLayout = React.createFactory(require('../layouts/Default'));
+var RatchetLayout = React.createFactory(require('../layouts/RatchetLayout'));
 
 var ContactPage = React.createClass({
-  displayName: 'Contact page',
 
   getDefaultProps: function() {
     return {
-      layout: DefaultLayout
+      layout: RatchetLayout
     };
   },
 
   render: function() {
     return (
       <div>
-        <p>CONTACT PAGE</p>
-        <button>Skeleton</button>
+        <form>
+          <input type="text" placeholder="Full name" />
+          <input type="search" placeholder="Search" />
+          <textarea rows="5"></textarea>
+          <button className="pull-right">Skeleton</button>
+        </form>
       </div>
     );
   }

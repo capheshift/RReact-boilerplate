@@ -1,0 +1,27 @@
+@import 'libs/variables';
+
+.bar-nav {
+  background-color: $header-bg-color;
+
+  .title {
+    color: $header-color;
+  }
+}
+
+.bar {
+  .btn-link {
+    color: $header-color;
+  }
+}
+
+.container-ratchet {
+  position: absolute;
+  top: 44px;
+  bottom: 51px;
+  padding: $gutter;
+  overflow-y: scroll;
+}
+
+.pull-right {
+  float: right;
+}
