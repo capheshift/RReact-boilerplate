@@ -21249,8 +21249,8 @@
 
 	  render: function() {
 	    return (
-	      React.DOM.div(null, 
-	        React.DOM.p(null, "HOME PAGE")
+	      React.createElement("div", null, 
+	        React.createElement("p", null, "HOME PAGE")
 	      )
 	    );
 	  }
@@ -21278,9 +21278,9 @@
 	  },
 	  render:function() {
 	    return (
-	      React.DOM.div(null, 
+	      React.createElement("div", null, 
 	        Navbar({ uri: this.props.uri }), 
-	        React.DOM.div({className: "container"}, 
+	        React.createElement("div", {className: "container"}, 
 	          this.props.children
 	        )
 	      )
@@ -21311,13 +21311,13 @@
 
 	  render:function() {
 	    return (
-	      React.DOM.nav({className: "navbar"}, 
+	      React.createElement("nav", {className: "navbar"}, 
 	        Link({ className: 'navbar-brand', to: '/' }, 'Welcome'), 
-	        React.DOM.ul({className: "nav navbar-nav"}, 
-	          React.DOM.li({className: this._checkUri('')}, 
+	        React.createElement("ul", {className: "nav navbar-nav"}, 
+	          React.createElement("li", {className: this._checkUri('')}, 
 	            Link({ to: '/' }, 'Home')
 	          ), 
-	          React.DOM.li({className: this._checkUri('contact')}, 
+	          React.createElement("li", {className: this._checkUri('contact')}, 
 	            Link({ to: '/contact' }, 'Contact')
 	          )
 	        )
@@ -21353,7 +21353,7 @@
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var assign = __webpack_require__(13);
+	// var assign = require('react/lib/Object.assign');
 	// var RouteActions = require('../actions/RouteActions');
 
 	var Link = React.createClass({
@@ -21413,9 +21413,9 @@
 
 	  render: function() {
 	    return (
-	      React.DOM.div(null, 
-	        React.DOM.p(null, "CONTACT PAGE"), 
-	        React.DOM.button(null, "Skeleton")
+	      React.createElement("div", null, 
+	        React.createElement("p", null, "CONTACT PAGE"), 
+	        React.createElement("button", null, "Skeleton")
 	      )
 	    );
 	  }
