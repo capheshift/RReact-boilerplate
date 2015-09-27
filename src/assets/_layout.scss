@@ -20,8 +20,26 @@
   bottom: 51px;
   padding: $gutter;
   overflow-y: scroll;
+  width: 100%;
 }
 
 .pull-right {
   float: right;
+}
+
+.table-view {
+  margin-left: -$gutter;
+  margin-right: -$gutter;
+}
+
+li {
+  margin-bottom: 0;
+}
+
+.table-view-cell {
+  padding-right: 40px;
+
+  > a:not(.btn) {
+    margin-right: -45px;
+  }
 }

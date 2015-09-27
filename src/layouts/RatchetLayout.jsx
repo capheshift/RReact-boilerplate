@@ -20,7 +20,7 @@ var RatchetLayout = React.createClass({
           </button>
         </header>
 
-        <div className="container container-ratchet">
+        <div className="container-ratchet">
           {this.props.children}
         </div>
 

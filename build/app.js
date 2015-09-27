@@ -21289,7 +21289,7 @@
 	          )
 	        ), 
 
-	        React.createElement("div", {className: "container container-ratchet"}, 
+	        React.createElement("div", {className: "container-ratchet"}, 
 	          this.props.children
 	        ), 
 
