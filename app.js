@@ -97,6 +97,10 @@
 	  '/search': function() {
 	    var page = React.createFactory(__webpack_require__(162));
 	    render(router.getRoute(), page);
+	  },
+	  '/setting': function() {
+	    var page = React.createFactory(__webpack_require__(163));
+	    render(router.getRoute(), page);
 	  }
 	});
 
@@ -21247,7 +21251,8 @@
 
 	  getDefaultProps: function() {
 	    return {
-	      layout: RatchetLayout
+	      layout: RatchetLayout,
+	      title: 'Home'
 	    };
 	  },
 
@@ -21283,7 +21288,7 @@
 	    return (
 	      React.createElement("div", null, 
 	        React.createElement("header", {className: "bar bar-nav"}, 
-	          React.createElement("h1", {className: "title"}, "Title"), 
+	          React.createElement("h1", {className: "title"},  this.props.title || 'title'), 
 	          React.createElement("button", {className: "btn btn-link btn-nav pull-left"}, 
 	            React.createElement("span", {className: "icon icon-left-nav"})
 	          )
@@ -21306,7 +21311,7 @@
 	            React.createElement("span", {className: "icon icon-search"}), 
 	            React.createElement("span", {className: "tab-label"}, "Search")
 	          ), 
-	          React.createElement("a", {className: "tab-item", href: "#"}, 
+	          React.createElement("a", {className: "tab-item", href: "#/setting"}, 
 	            React.createElement("span", {className: "icon icon-gear"}), 
 	            React.createElement("span", {className: "tab-label"}, "Settings")
 	          )
@@ -21335,7 +21340,8 @@
 
 	  getDefaultProps: function() {
 	    return {
-	      layout: RatchetLayout
+	      layout: RatchetLayout,
+	      title: 'Contact'
 	    };
 	  },
 
@@ -21372,7 +21378,8 @@
 
 	  getDefaultProps: function() {
 	    return {
-	      layout: RatchetLayout
+	      layout: RatchetLayout,
+	      title: 'Search'
 	    };
 	  },
 
@@ -21442,6 +21449,55 @@
 	                "Item 1", 
 	                React.createElement("p", null, "Lorem ipsum dolor sit amet, consectetur adipisicing elit")
 	              )
+	            )
+	          )
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = SearchPage;
+
+
+/***/ },
+/* 163 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * @jsx React.DOM
+	 */
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var RatchetLayout = React.createFactory(__webpack_require__(160));
+
+	var SearchPage = React.createClass({displayName: "SearchPage",
+
+	  getDefaultProps: function() {
+	    return {
+	      layout: RatchetLayout,
+	      title: 'Settings'
+	    };
+	  },
+
+	  render: function() {
+	    return (
+	      React.createElement("div", null, 
+	        React.createElement("ul", {className: "table-view"}, 
+	          React.createElement("li", {className: "table-view-cell"}, 
+	            React.createElement("a", {className: "navigate-right"}, 
+	              "Item 1"
+	            )
+	          ), 
+	          React.createElement("li", {className: "table-view-cell"}, 
+	            React.createElement("a", {className: "navigate-right"}, 
+	              "Item 2"
+	            )
+	          ), 
+	          React.createElement("li", {className: "table-view-cell"}, 
+	            React.createElement("a", {className: "navigate-right"}, 
+	              "Item 3"
 	            )
 	          )
 	        )
