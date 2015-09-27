@@ -849,3 +849,6 @@ li {
   padding-right: 40px; }
   .table-view-cell > a:not(.btn) {
     margin-right: -45px; }
+
+.bar-tab .tab-item.active, .bar-tab .tab-item:active {
+  color: #985321; }
