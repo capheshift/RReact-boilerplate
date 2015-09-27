@@ -10,7 +10,8 @@ var SearchPage = React.createClass({
 
   getDefaultProps: function() {
     return {
-      layout: RatchetLayout
+      layout: RatchetLayout,
+      title: 'Search'
     };
   },
 

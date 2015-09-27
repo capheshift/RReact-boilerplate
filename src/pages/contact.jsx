@@ -10,7 +10,8 @@ var ContactPage = React.createClass({
 
   getDefaultProps: function() {
     return {
-      layout: RatchetLayout
+      layout: RatchetLayout,
+      title: 'Contact'
     };
   },
 

@@ -14,7 +14,7 @@ var RatchetLayout = React.createClass({
     return (
       <div>
         <header className="bar bar-nav">
-          <h1 className="title">Title</h1>
+          <h1 className="title">{ this.props.title || 'title' }</h1>
           <button className="btn btn-link btn-nav pull-left">
             <span className="icon icon-left-nav"></span>
           </button>
@@ -37,7 +37,7 @@ var RatchetLayout = React.createClass({
             <span className="icon icon-search"></span>
             <span className="tab-label">Search</span>
           </a>
-          <a className="tab-item" href="#">
+          <a className="tab-item" href="#/setting">
             <span className="icon icon-gear"></span>
             <span className="tab-label">Settings</span>
           </a>

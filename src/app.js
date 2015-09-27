@@ -51,6 +51,10 @@ var router = new Router({
   '/search': function() {
     var page = React.createFactory(require('./pages/search'));
     render(router.getRoute(), page);
+  },
+  '/setting': function() {
+    var page = React.createFactory(require('./pages/setting'));
+    render(router.getRoute(), page);
   }
 });
 
