@@ -43,3 +43,7 @@ li {
     margin-right: -45px;
   }
 }
+
+.bar-tab .tab-item.active, .bar-tab .tab-item:active {
+  color: $header-bg-color;
+}

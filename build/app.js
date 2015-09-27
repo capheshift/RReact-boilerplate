@@ -21280,11 +21280,20 @@
 	var React = __webpack_require__(1);
 
 	var RatchetLayout = React.createClass({displayName: "RatchetLayout",
-	  getDefaultProps:function() {
+	  getDefaultProps: function() {
 	    return {};
 	  },
 
-	  render:function() {
+	  isActive: function(target) {
+	    var uri = this.props.uri[0];
+	    if (uri === target) {
+	      return 'active';
+	    } else {
+	      return '';
+	    }
+	  },
+
+	  render: function() {
 	    return (
 	      React.createElement("div", null, 
 	        React.createElement("header", {className: "bar bar-nav"}, 
@@ -21299,19 +21308,19 @@
 	        ), 
 
 	        React.createElement("nav", {className: "bar bar-tab"}, 
-	          React.createElement("a", {className: "tab-item active", href: "#/"}, 
+	          React.createElement("a", {className:  "tab-item " + this.isActive(''), href: "#/"}, 
 	            React.createElement("span", {className: "icon icon-home"}), 
 	            React.createElement("span", {className: "tab-label"}, "Home")
 	          ), 
-	          React.createElement("a", {className: "tab-item", href: "#/contact"}, 
+	          React.createElement("a", {className:  "tab-item " + this.isActive('contact'), href: "#/contact"}, 
 	            React.createElement("span", {className: "icon icon-star-filled"}), 
 	            React.createElement("span", {className: "tab-label"}, "Favorites")
 	          ), 
-	          React.createElement("a", {className: "tab-item", href: "#/search"}, 
+	          React.createElement("a", {className:  "tab-item " + this.isActive('search'), href: "#/search"}, 
 	            React.createElement("span", {className: "icon icon-search"}), 
 	            React.createElement("span", {className: "tab-label"}, "Search")
 	          ), 
-	          React.createElement("a", {className: "tab-item", href: "#/setting"}, 
+	          React.createElement("a", {className:  "tab-item " + this.isActive('setting'), href: "#/setting"}, 
 	            React.createElement("span", {className: "icon icon-gear"}), 
 	            React.createElement("span", {className: "tab-label"}, "Settings")
 	          )
